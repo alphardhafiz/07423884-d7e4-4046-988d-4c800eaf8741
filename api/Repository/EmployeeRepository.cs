@@ -49,6 +49,41 @@ namespace api.Repository
                 employee = employee.Where(e => e.FirstName.Contains(query.Search) || e.LastName.Contains(query.Search) || e.Position.Contains(query.Search) || e.Phone.Contains(query.Search) || e.Email.Contains(query.Search));
             }
 
+            if (!string.IsNullOrWhiteSpace(query.SortBy))
+            {
+                switch (query.SortBy.ToLower())
+                {
+                    case "firstname":
+                        employee = query.IsDecsending
+                            ? employee.OrderByDescending(e => e.FirstName)
+                            : employee.OrderBy(e => e.FirstName);
+                        break;
+                    case "lastname":
+                        employee = query.IsDecsending
+                            ? employee.OrderByDescending(e => e.LastName)
+                            : employee.OrderBy(e => e.LastName);
+                        break;
+                    case "position":
+                        employee = query.IsDecsending
+                            ? employee.OrderByDescending(e => e.Position)
+                            : employee.OrderBy(e => e.Position);
+                        break;
+                    case "phone":
+                        employee = query.IsDecsending
+                            ? employee.OrderByDescending(e => e.Phone)
+                            : employee.OrderBy(e => e.Phone);
+                        break;
+                    case "email":
+                        employee = query.IsDecsending
+                            ? employee.OrderByDescending(e => e.Email)
+                            : employee.OrderBy(e => e.Email);
+                        break;
+                    default:
+                        // Handle default sorting if necessary
+                        break;
+                }
+            }
+
             var skipNumber = (query.PageNumber - 1) * query.PageSize;
 
             return await employee.Skip(skipNumber).Take(query.PageSize).ToListAsync();
