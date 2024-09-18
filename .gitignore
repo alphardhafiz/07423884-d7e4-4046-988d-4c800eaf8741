@@ -1,0 +1,53 @@
+# Build results
+/bin/
+/obj/
+
+/out/
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+*.pkg
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Logs
+*.log
+
+# Dotnet tools
+.dotnet/tools/
+
+# Translations
+*.pdb
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# JetBrains Rider
+.idea/
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Backup & temporary files
+*~ 
+*.swp
+
+# Microsoft Azure Functions
+local.settings.json
